@@ -14,14 +14,13 @@ public class AppTest_Testcontainers {
     private App underTest;
 
     @Rule
-    public GenericContainer redis = new GenericContainer(DockerImageName.parse("redis:5.0.3-alpine"))
-                                        .withExposedPorts(6379);
-    // public GenericContainer redis = new GenericContainer(DockerImageName.parse("franciscocodefresh/private-redis:1.0.1"))
+    // public GenericContainer redis = new GenericContainer(DockerImageName.parse("redis:5.0.3-alpine"))
     //                                     .withExposedPorts(6379);
+    public GenericContainer redis = new GenericContainer(DockerImageName.parse("franciscocodefresh/private-redis:1.0.1"))
+                                        .withExposedPorts(6379);
 
     @Before
     public void setUp() {
-        // Assume that we have Redis running locally?
         underTest = new App();
     }
     
@@ -36,13 +35,6 @@ public class AppTest_Testcontainers {
     public void testContainer() {
         String address = redis.getHost();
         Integer port = redis.getFirstMappedPort();
-        assertEquals("host should be localhost", "localhost", address);
-    }
-
-    @Test public void testAppHasAGreeting() {
-        App classUnderTest = new App();
-        //assertNotNull("this should fail the test!", null);
-        assertNotNull("app HAS A greeting!", classUnderTest.getGreeting());
-        
+        assertEquals("host should be localhost", address, redis.getHost());
     }
 }
