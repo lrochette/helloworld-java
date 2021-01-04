@@ -28,6 +28,7 @@ public class AppTest_Testcontainers {
     public void testGreeting() {
         String expectedGreeting = "Hello World!";
         String retrievedGreeting = underTest.getGreeting();
+        System.out.println( "'testGreeting' method executed" );
         assertEquals("strings should be the same", expectedGreeting, retrievedGreeting);
     }
 
@@ -35,6 +36,7 @@ public class AppTest_Testcontainers {
     public void testContainer() {
         String address = redis.getHost();
         Integer port = redis.getFirstMappedPort();
+        System.out.println( "'testContainer' method executed" );
         assertEquals("host should be Valid -a change-", address, redis.getHost());
     }
 }
