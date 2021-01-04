@@ -63,7 +63,7 @@ public class AppTest_Testcontainers_Nginx {
         } catch (MalformedURLException e) {
 
         }
-        System.out.print(baseUrl.toString());
+        //System.out.println( baseUrl.toString() );
         try {
             assertThat("An HTTP GET from the Nginx server returns the index.html from the custom content directory",
                 responseFromNginx(baseUrl),

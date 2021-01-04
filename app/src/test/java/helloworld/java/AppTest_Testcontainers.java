@@ -35,6 +35,6 @@ public class AppTest_Testcontainers {
     public void testContainer() {
         String address = redis.getHost();
         Integer port = redis.getFirstMappedPort();
-        assertEquals("host should be localhost", address, redis.getHost());
+        assertEquals("host should be Valid -a change-", address, redis.getHost());
     }
 }
